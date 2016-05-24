@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-May-2016 08:20:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.entity.Accident" table="accident" catalog="my_db" optimistic-lock="version">
+        <id name="accId" type="int">
+            <column name="acc_id" />
+            <generator class="increment" />
+        </id>
+        <property name="accLoc" type="string">
+            <column name="acc_loc" length="100" />
+        </property>
+        <property name="accLat" type="java.lang.Double">
+            <column name="acc_lat" precision="22" scale="0" />
+        </property>
+        <property name="accLong" type="java.lang.Double">
+            <column name="acc_long" precision="22" scale="0" />
+        </property>
+        <one-to-one name="info" class="db.entity.Info"></one-to-one>
+    </class>
+</hibernate-mapping>

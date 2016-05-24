@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-May-2016 08:20:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.entity.Info" table="info" catalog="my_db" optimistic-lock="version">
+        <id name="accId" type="int">
+            <column name="acc_id" />
+            <generator class="foreign">
+                <param name="property">accident</param>
+            </generator>
+        </id>
+        <one-to-one name="accident" class="db.entity.Accident" constrained="true"></one-to-one>
+        <many-to-one name="post" class="db.entity.Post" fetch="select">
+            <column name="post_id" not-null="true" />
+        </many-to-one>
+        <property name="infoId" type="int">
+            <column name="info_id" not-null="true" />
+        </property>
+        <property name="distance" type="java.lang.Double">
+            <column name="distance" precision="22" scale="0" />
+        </property>
+        <property name="time" type="java.lang.Double">
+            <column name="time" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
